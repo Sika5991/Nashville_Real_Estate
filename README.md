@@ -1,5 +1,3 @@
-# Nashville_Real_Estate
-
 # Nashville Real Estate Data Cleaning and Transformation
 
 ## Overview
