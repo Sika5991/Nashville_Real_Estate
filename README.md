@@ -17,8 +17,9 @@ This repository contains SQL scripts for cleaning and transforming the Nashville
   SELECT * FROM nashville_housing;
 
 ## Data Cleaning
+Normalizing PropertyAddress
+Null values in the PropertyAddress column are filled based on matching ParcelID.
 
-
-# Data Transformation
+## Data Transformation
 
 ## Data Review
