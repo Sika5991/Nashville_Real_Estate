@@ -24,7 +24,10 @@ Null values in the PropertyAddress column are filled based on matching ParcelID.
 - 'VACANT RES LAND' and 'VACANT RESIENTIAL LAND' are changed to 'VACANT RESIDENTIAL LAND'
 - 'GREENBELT/RES GRRENBELT/RES' is updated to 'GREENBELT'
 
-
+### Standardizing SoldAsVacant
+Convert:
+- 'Y' to 'Yes'
+- 'N' to 'No'
 
 ## Data Transformation
 
