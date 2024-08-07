@@ -15,3 +15,34 @@ This repository contains SQL scripts for cleaning and transforming the Nashville
 - **Viewing the Original Data**:
   ```sql
   SELECT * FROM nashville_housing;
+
+Data Cleaning
+
+Normalizing PropertyAddress
+Null values in the PropertyAddress column are filled based on matching ParcelID.
+
+Standardizing LandUse
+Correct inconsistencies:
+'VACANT RES LAND' and 'VACANT RESIENTIAL LAND' are changed to 'VACANT RESIDENTIAL LAND'
+'GREENBELT/RES GRRENBELT/RES' is updated to 'GREENBELT'
+Standardizing SoldAsVacant
+Convert:
+'Y' to 'Yes'
+'N' to 'No'
+Data Transformation
+
+Creating nashville_housing_v1
+Transformations Include:
+Removing '.00' from ParcelID.
+Extracting street address and city from PropertyAddress.
+Converting SalePrice to an integer.
+Normalizing SoldAsVacant values.
+Splitting OwnerName into two parts where applicable.
+Setting DualOwnerFlag based on the presence of dual owners.
+Parsing OwnerAddress into street address, city, and state.
+Removing Duplicates
+Creating nashville_housing_v2:
+Removing duplicates based on ParcelID, SaleDate, SalePrice, and LegalReference.
+Final Cleaned Dataset
+Creating nashville_housing_v3:
+Selecting only necessary columns for streamlined analysis.
