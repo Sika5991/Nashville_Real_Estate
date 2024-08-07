@@ -30,5 +30,14 @@ Convert:
 - 'N' to 'No'
 
 ## Data Transformation
+### Creating nashville_housing_v1
+Transformations Include:
+- Removing '.00' from ParcelID.
+- Extracting street address and city from PropertyAddress.
+- Converting SalePrice to an integer.
+- Normalizing SoldAsVacant values.
+- Splitting OwnerName into two parts where applicable.
+- Setting DualOwnerFlag based on the presence of dual owners.
+- Parsing OwnerAddress into street address, city, and state.
 
 ## Data Review
