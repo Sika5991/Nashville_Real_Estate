@@ -56,3 +56,10 @@ Creating nashville_housing_v3:
   FROM nashville_housing_v3
   GROUP BY City
   ORDER BY Volume DESC;
+
+# License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+# Contributing
+Feel free to open issues or submit pull requests if you have any suggestions or improvements.
+
