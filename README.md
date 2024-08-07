@@ -40,4 +40,19 @@ Transformations Include:
 - Setting DualOwnerFlag based on the presence of dual owners.
 - Parsing OwnerAddress into street address, city, and state.
 
+### Removing Duplicates
+Creating nashville_housing_v2:
+- Removing duplicates based on ParcelID, SaleDate, SalePrice, and LegalReference.
+
+### Final Cleaned Dataset
+Creating nashville_housing_v3:
+- Selecting only necessary columns for streamlined analysis.
+- 
 ## Data Review
+### Volume of Unique Values
+- **Counting unique values in City, OwnerCity, TaxDistrict, and LandUse**:
+  ```sql
+  SELECT DISTINCT City, COUNT(*) AS Volume
+  FROM nashville_housing_v3
+  GROUP BY City
+  ORDER BY Volume DESC;
