@@ -21,8 +21,8 @@ This repository contains SQL scripts for cleaning and transforming the Nashville
 Null values in the PropertyAddress column are filled based on matching ParcelID.
 
 ### Standardizing LandUse
-'VACANT RES LAND' and 'VACANT RESIENTIAL LAND' are changed to 'VACANT RESIDENTIAL LAND'
-'GREENBELT/RES GRRENBELT/RES' is updated to 'GREENBELT'
+- 'VACANT RES LAND' and 'VACANT RESIENTIAL LAND' are changed to 'VACANT RESIDENTIAL LAND'
+- 'GREENBELT/RES GRRENBELT/RES' is updated to 'GREENBELT'
 
 
 
