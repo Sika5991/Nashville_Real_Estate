@@ -18,7 +18,7 @@ This repository contains SQL scripts for cleaning and transforming the Nashville
 ### Normalizing PropertyAddress
 Null values in the PropertyAddress column are filled based on matching ParcelID.
 ```sql
-  WITH PropertyAddress_CTE AS (
+WITH PropertyAddress_CTE AS (
     SELECT a.*,
     ISNULL(b.PropertyAddress, a.PropertyAddress) AS NewPropertyAddress
     FROM nashville_housing a
