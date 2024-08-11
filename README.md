@@ -25,13 +25,12 @@ Null values in the PropertyAddress column are filled based on matching ParcelID.
     LEFT JOIN nashville_housing b 
         ON a.ParcelId = b.ParcelId
         AND a.UniqueId <> b.UniqueId
-)
-UPDATE t1
-SET t1.PropertyAddress = t2.NewPropertyAddress
-FROM nashville_housing_v0 t1
-JOIN PropertyAddress_CTE t2
-    ON t1.UniqueID = t2.UniqueID
-;
+  )
+  UPDATE t1
+  SET t1.PropertyAddress = t2.NewPropertyAddress
+  FROM nashville_housing_v0 t1
+  JOIN PropertyAddress_CTE t2
+    ON t1.UniqueID = t2.UniqueID;
 ```
 
 ### Standardizing LandUse
