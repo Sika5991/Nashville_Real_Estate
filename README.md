@@ -146,7 +146,7 @@ FROM nashville_cleanup_CTE;
 ### Removing Duplicates
 Creating nashville_housing_v2:
 - Removing duplicates based on ParcelID, SaleDate, SalePrice, and LegalReference.
-```
+``` sql
     WITH Duplicates_CTE AS (
     SELECT *,
     ROW_NUMBER() OVER (PARTITION BY ParcelID, SaleDate, SalePrice, LegalReference  ORDER BY UniqueID) AS row_number
@@ -161,7 +161,7 @@ WHERE row_number = 1;
 ### Final Cleaned Dataset
 Creating nashville_housing_v3:
 - Selecting only necessary columns for streamlined analysis.
-```
+``` sql
     SELECT 
     UniqueID,
     ParcelID,
