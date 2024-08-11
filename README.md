@@ -59,6 +59,22 @@ Null values in the PropertyAddress column are filled based on matching ParcelID.
 Convert:
 - 'Y' to 'Yes'
 - 'N' to 'No'
+``` sql
+  WITH SoldAsVacant_CTE AS (
+    SELECT
+    UniqueID,
+    CASE
+        WHEN SoldAsVacant = 'Y' THEN 'Yes'
+        WHEN SoldAsVacant = 'N' THEN 'No'
+    ELSE SoldAsVacant
+    END AS NewSoldAsVacant
+    FROM nashville_housing_v0
+  )
+  UPDATE t1
+  SET t1.SoldAsVacant = t2.NewSoldAsVacant
+  FROM nashville_housing_v0 t1
+  INNER JOIN SoldAsVacant_CTE t2
+      ON t1.UniqueID = t2.UniqueID;
 
 ## Data Transformation
 ### Creating nashville_housing_v1
