@@ -19,6 +19,7 @@ This repository contains SQL scripts for cleaning and transforming the Nashville
 Null values in the PropertyAddress column are filled based on matching ParcelID.
 ```sql
   SELECT * FROM nashville_housing_v0;
+```
 
 ##
 ### Standardizing LandUse
