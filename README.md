@@ -36,6 +36,24 @@ Null values in the PropertyAddress column are filled based on matching ParcelID.
 ### Standardizing LandUse
 - 'VACANT RES LAND' and 'VACANT RESIENTIAL LAND' are changed to 'VACANT RESIDENTIAL LAND'
 - 'GREENBELT/RES GRRENBELT/RES' is updated to 'GREENBELT'
+``` sql
+  WITH LandUse_CTE AS (
+    SELECT
+    UniqueID,
+    CASE 
+        WHEN LandUse = 'VACANT RES LAND' THEN 'VACANT RESIDENTIAL LAND'
+        WHEN LandUse = 'VACANT RESIENTIAL LAND' THEN 'VACANT RESIDENTIAL LAND'
+        WHEN LandUse LIKE 'GREENBELT/RES%GRRENBELT/RES' THEN 'GREENBELT'
+        ElSE LandUse
+    END AS NewLandUse
+    FROM nashville_housing_v0
+  )
+  UPDATE t1
+  SET t1.LandUse = t2.NewLandUse
+  FROM nashville_housing_v0 t1
+  INNER JOIN LandUse_CTE t2
+      ON t1.UniqueID = t2.UniqueID;
+```
 
 ### Standardizing SoldAsVacant
 Convert:
