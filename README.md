@@ -75,6 +75,7 @@ Convert:
   FROM nashville_housing_v0 t1
   INNER JOIN SoldAsVacant_CTE t2
       ON t1.UniqueID = t2.UniqueID;
+```
 
 ## Data Transformation
 ### Creating nashville_housing_v1
