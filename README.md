@@ -18,10 +18,22 @@ This repository contains SQL scripts for cleaning and transforming the Nashville
 ### Normalizing PropertyAddress
 Null values in the PropertyAddress column are filled based on matching ParcelID.
 ```sql
-  SELECT * FROM nashville_housing_v0;
+  WITH PropertyAddress_CTE AS (
+    SELECT a.*,
+    ISNULL(b.PropertyAddress, a.PropertyAddress) AS NewPropertyAddress
+    FROM nashville_housing a
+    LEFT JOIN nashville_housing b 
+        ON a.ParcelId = b.ParcelId
+        AND a.UniqueId <> b.UniqueId
+)
+UPDATE t1
+SET t1.PropertyAddress = t2.NewPropertyAddress
+FROM nashville_housing_v0 t1
+JOIN PropertyAddress_CTE t2
+    ON t1.UniqueID = t2.UniqueID
+;
 ```
 
-##
 ### Standardizing LandUse
 - 'VACANT RES LAND' and 'VACANT RESIENTIAL LAND' are changed to 'VACANT RESIDENTIAL LAND'
 - 'GREENBELT/RES GRRENBELT/RES' is updated to 'GREENBELT'
